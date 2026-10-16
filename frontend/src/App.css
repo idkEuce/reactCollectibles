@@ -31,6 +31,15 @@ nav {
   padding: 1rem 1rem;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
 #search_btn {
   background-color: #febd69;
 }
@@ -116,6 +125,7 @@ nav {
 /* Footer */
 footer {
   margin-top: 8rem;
+  margin-bottom: 20;
   color: grey;
   bottom: 0;
   width: 100%;
@@ -633,4 +643,191 @@ ul.CTAs a {
   align-items: center;
   height: 100px;
   object-fit: contain;
+}
+/* ===== Site Header (sticky, full-width, single horizontal row) ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: #232f3e;
+  box-sizing: border-box;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.6rem 2rem;
+}
+
+.site-logo {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.site-logo img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: block;
+}
+
+.site-search {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 320px;
+  text-align: left;
+}
+
+/* neutralise the old global .input-group sizing inside the header */
+.site-search .input-group {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin-right: 0;
+}
+
+.site-search #search_field {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 2.4rem;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 0.3rem 0 0 0.3rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.site-search .input-group-append {
+  display: flex;
+}
+
+.site-search #search_btn {
+  height: 2.4rem;
+  width: 3rem;
+  padding: 0;
+  border: none;
+  border-radius: 0 0.3rem 0.3rem 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Font Awesome isn't loaded in this project, so draw the magnifier in CSS */
+.site-search #search_btn .fa-search::before {
+  content: '';
+  display: block;
+  width: 1.15rem;
+  height: 1.15rem;
+  background-color: #232f3e;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M21 21l-4.3-4.3'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M21 21l-4.3-4.3'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.site-header__actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+.site-header__cart {
+  position: relative;
+  display: inline-flex;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* count badge pinned to the cart icon's top-right corner */
+.site-header__cart #cart_count {
+  position: absolute;
+  top: -10px;
+  right: -14px;
+  min-width: 1.3rem;
+  padding: 0.05rem 0.35rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  line-height: 1.2rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.site-header__login {
+  display: inline-block;
+  color: #232f3e;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+  border-radius: 0.3rem;
+}
+
+@media (max-width: 600px) {
+  .site-header__inner {
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  .site-logo img {
+    width: 40px;
+    height: 40px;
+  }
+  .site-header__actions {
+    gap: 1.1rem;
+  }
+  #login_btn.site-header__login {
+    padding: 0.35rem 0.9rem;
+  }
+}
+
+/* ===== Header music toggle (gif logo) ===== */
+.music-toggle {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #1a2330;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.music-toggle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+
+.music-toggle:hover img {
+  opacity: 1;
+}
+
+.music-toggle.is-playing {
+  border-color: #febd69;
+  box-shadow: 0 0 10px rgba(254, 189, 105, 0.6);
+}
+
+.music-toggle.is-playing img {
+  opacity: 1;
+}
+
+.music-toggle.is-loading {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+@media (max-width: 600px) {
+  .music-toggle {
+    width: 36px;
+    height: 36px;
+  }
 }
