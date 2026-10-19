@@ -4,7 +4,7 @@ const Product = ({ item }) => {
     console.log(item)
     return (
         // <ProductDetails item={item} />
-        <div className="col-sm-12 col-md-6 col-lg-3 my-3">
+                <div className="product-item">
             <div className="card p-3 rounded">
                 <img
                     className="card-img-top mx-auto"

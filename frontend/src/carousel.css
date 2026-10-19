@@ -1,9 +1,9 @@
-.cc { max-width: 1200px; margin: 40px auto; padding: 0 16px; }
+.cc { width: 100%; box-sizing: border-box; margin: 24px 0 40px; padding: 0 2rem; }
 
-.cc__stage { position: relative; overflow: hidden; aspect-ratio: 2.6 / 1; }
+.cc__stage { position: relative; overflow: hidden; aspect-ratio: 3.2 / 1; }
 
 .cc__card {
-  position: absolute; top: 10px; left: 35%; width: 30%;
+  position: absolute; top: 10px; left: 39%; width: 22%;
   transform: translateX(calc(var(--o) * 104%)) scale(0.8);
   opacity: 0.8;                      /* side cards */
   transition: transform 0.45s ease, opacity 0.45s ease;

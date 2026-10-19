@@ -7,12 +7,11 @@ const Home = () => {
     console.log(products)
     return (
         <>
-        <Carousel title={"Featured Products"} items={products} interval={4000} />
+        <Carousel className="product-section" title={"Featured Products"} items={products} interval={4000} />
         <MetaData title={"Best Buy"} />
-          <div className="container container-fluid">
+         <section id="products" className="products-section">
                 <h1 id="products_heading">Latest Products</h1>
-                <section id="products" className="container mt-5">
-                    <div className="row">
+                <div className="products-grid">
                         {products && products.map(product => (
                             // <Product key={product._id} product={product} />
                             <Product item={product} />
@@ -21,9 +20,6 @@ const Home = () => {
                         ))}
                     </div>
                 </section>
-            </div>
-
-
         </>
     )
 }
